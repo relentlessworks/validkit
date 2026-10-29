@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>validkit — Agentic-First Data Validation</title>
+<style>
+:root { --bg: #0d1117; --card: #161b22; --border: #30363d; --text: #e6edf3; --muted: #8b949e; --accent: #58a6ff; --green: #3fb950; --red: #f85149; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; }
+.container { max-width: 960px; margin: 0 auto; padding: 2rem 1rem; }
+.hero { text-align: center; padding: 3rem 0; }
+.hero h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+.hero .tagline { color: var(--muted); font-size: 1.2rem; margin-bottom: 1.5rem; }
+.badges { display: flex; gap: 0.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.badge { background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 0.25rem 0.75rem; font-size: 0.85rem; color: var(--muted); }
+.cta { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cta a { display: inline-block; padding: 0.6rem 1.5rem; border-radius: 8px; text-decoration: none; font-weight: 600; }
+.cta .primary { background: var(--accent); color: var(--bg); }
+.cta .secondary { border: 1px solid var(--border); color: var(--text); }
+section { margin: 2.5rem 0; }
+h2 { font-size: 1.5rem; margin-bottom: 1rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+.card .name { color: var(--accent); font-weight: 600; font-size: 0.9rem; }
+.card .desc { color: var(--muted); font-size: 0.8rem; margin-top: 0.25rem; }
+pre { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; overflow-x: auto; font-size: 0.85rem; }
+code { color: var(--green); }
+table { width: 100%; border-collapse: collapse; }
+th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+th { color: var(--muted); font-weight: 600; }
+footer { text-align: center; color: var(--muted); padding: 2rem 0; border-top: 1px solid var(--border); margin-top: 2rem; }
+@media (max-width: 600px) { .hero h1 { font-size: 2rem; } .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="container">
+<div class="hero">
+<h1>validkit</h1>
+<p class="tagline">Agentic-first data validation service. 30+ validators. Auto-detect. Plain text API. Single Go binary.</p>
+<div class="badges">
+<span class="badge">Go</span>
+<span class="badge">No Database</span>
+<span class="badge">Stateless</span>
+<span class="badge">MCP</span>
+<span class="badge">Plain Text</span>
+<span class="badge">Multi-Tenant Ready</span>
+</div>
+<div class="cta">
+<a class="primary" href="https://github.com/relentlessworks/validkit">View on GitHub</a>
+<a class="secondary" href="https://github.com/relentlessworks/validkit/releases">Download</a>
+</div>
+</div>
+
+<section>
+<h2>Validation Types</h2>
+<div class="grid">
+<div class="card"><div class="name">email</div><div class="desc">RFC 5322 email validation</div></div>
+<div class="card"><div class="name">creditcard</div><div class="desc">Luhn + card type detection</div></div>
+<div class="card"><div class="name">isbn</div><div class="desc">ISBN-10 / ISBN-13 checksum</div></div>
+<div class="card"><div class="name">iban</div><div class="desc">Mod-97 checksum</div></div>
+<div class="card"><div class="name">bic</div><div class="desc">BIC/SWIFT code format</div></div>
+<div class="card"><div class="name">vin</div><div class="desc">17-char VIN with checksum</div></div>
+<div class="card"><div class="name">ssn</div><div class="desc">US SSN format + rules</div></div>
+<div class="card"><div class="name">ein</div><div class="desc">US EIN format</div></div>
+<div class="card"><div class="name">domain</div><div class="desc">Domain name validation</div></div>
+<div class="card"><div class="name">mac</div><div class="desc">MAC address (all formats)</div></div>
+<div class="card"><div class="name">postal</div><div class="desc">28 countries supported</div></div>
+<div class="card"><div class="name">color</div><div class="desc">Hex color (#RGB to #RRGGBBAA)</div></div>
+<div class="card"><div class="name">coordinates</div><div class="desc">Lat/lng range validation</div></div>
+<div class="card"><div class="name">mime</div><div class="desc">MIME type format</div></div>
+<div class="card"><div class="name">username</div><div class="desc">Username/handle rules</div></div>
+<div class="card"><div class="name">jwt</div><div class="desc">JWT structure validation</div></div>
+<div class="card"><div class="name">json</div><div class="desc">JSON validity check</div></div>
+<div class="card"><div class="name">xml</div><div class="desc">XML well-formedness</div></div>
+<div class="card"><div class="name">base64</div><div class="desc">All Base64 variants</div></div>
+<div class="card"><div class="name">hex</div><div class="desc">Hex string validation</div></div>
+<div class="card"><div class="name">uuid</div><div class="desc">UUID with version detection</div></div>
+<div class="card"><div class="name">ipv4</div><div class="desc">IPv4 with class/private</div></div>
+<div class="card"><div class="name">ipv6</div><div class="desc">IPv6 address validation</div></div>
+<div class="card"><div class="name">url</div><div class="desc">URL with scheme+host</div></div>
+<div class="card"><div class="name">luhn</div><div class="desc">Luhn checksum verification</div></div>
+<div class="card"><div class="name">auto</div><div class="desc">Auto-detect type from input</div></div>
+</div>
+</section>
+
+<section>
+<h2>Quick Start</h2>
+<pre><code># Build
+make build
+
+# Run
+./validkit -no-auth
+
+# Validate email
+curl -X POST http://localhost:7700/validate/email -d '{"value":"test@example.com"}'
+
+# Auto-detect
+curl -X POST http://localhost:7700/validate -d '{"value":"4242424242424242"}'
+
+# JSON output
+curl -X POST http://localhost:7700/validate/uuid -H 'Accept: application/json' -d '{"value":"550e8400-e29b-41d4-a716-446655440000"}'</code></pre>
+</section>
+
+<section>
+<h2>Configuration</h2>
+<table>
+<tr><th>Flag</th><th>Env</th><th>Default</th><th>Description</th></tr>
+<tr><td>-addr</td><td>VALIDKIT_ADDR</td><td>:7700</td><td>Listen address</td></tr>
+<tr><td>-secret</td><td>VALIDKIT_SECRET</td><td>(auto)</td><td>Token signing secret</td></tr>
+<tr><td>-no-auth</td><td>VALIDKIT_NO_AUTH</td><td>false</td><td>Disable auth (dev mode)</td></tr>
+</table>
+</section>
+
+<footer>
+<p>validkit — part of <a href="https://github.com/relentlessworks" style="color:var(--accent);text-decoration:none;">relentlessworks</a> · MIT License</p>
+</footer>
+</div>
+</body>
+</html>
